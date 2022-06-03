@@ -74,7 +74,14 @@ git add . && git commit -m "added CheckList.txt"
 git push origin CheckLists
 
 9. На внешнем репозитории сделать Pull Request ветки CheckLists в master
+Выбираем на удаленном репозитории Pull Request 
+выбираем base:master <- compare: CheckLists
+добавляем название, если не нравится автоматом поставленное
+далее Create pull request
+нажимаем Merge pull request
+подтверждаем Confirm merge
 
 10. Синхронизировать Внешнюю и Локальную ветки master
 git checkout master
 git pull master
+подтвердить слияние
