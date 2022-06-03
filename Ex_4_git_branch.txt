@@ -18,7 +18,7 @@ git checkout -b nameBranch
 
 3. В ветке Bag_Reports сделать текстовый документ со структурой баг репорта
 переключиться на ветку: git checkout Bag_Reports
-создать файл cat >> Bag_Reports.txt
+создать файл cat >> Bag_Report.txt
 "ID": "A1",
         "Title": "При увеличении высоты виджета, на чистом экране телефона до размера большего чем 4 ячейки, высота отображается некорректно",
         "Project": "AndroidGridTest",
@@ -38,10 +38,43 @@ git checkout -b nameBranch
 Ctrl + C
 
 4. Запушить структуру багрепорта на внешний репозиторий
+git add Bag_Report.txt && git commit -m "added Bag_Report.txt"
+git push origin Bag_Reports
 
-5. Вмержить ветку Bag Reports в Master
-6. Запушить Master на внешний репозиторий.
+5. Вмержить ветку Bag Reports в master
+git checkout master
+git merge Bag_Reports -m "merge_Bag_Reports"
+
+6. Запушить master на внешний репозиторий.
+git add . && git commit -m "added Bag_Report.txt"
+git push origin master
+
 7. В ветке CheckLists набросать структуру чек листа.
+git checkout CheckLists
+создать файл cat >> CheckList.txt
+Минимальный чек лист состоит из 3-х столбцов ID («Номер»), 
+Tester Actions («Проверка», «Действия тестировщика»),
+Actual Result («Результат»):
+
+Номер проверки |  Проверка   | Результат
+---------------|-------------|----------
+       1       | регистрация |  Passed
+
+В чек лист добавляется поле Comment («Комментарий»),
+использующийся тестировщиком для отображения дополнительной информации о тесте:
+
+Номер проверки |  Проверка   | Результат | Комментарий
+---------------|-------------|-----------|------------
+      1        | регистрация |  Failed   |  Bug # 1
+ и т.д.
+Ctrl + C
+
 8. Запушить структуру на внешний репозиторий
-9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
-10. Синхронизировать Внешнюю и Локальную ветки Main
+git add . && git commit -m "added CheckList.txt"
+git push origin CheckLists
+
+9. На внешнем репозитории сделать Pull Request ветки CheckLists в master
+
+10. Синхронизировать Внешнюю и Локальную ветки master
+git checkout master
+git pull master
